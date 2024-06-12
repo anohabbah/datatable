@@ -92,6 +92,12 @@
       "options": {
         "jestConfig": "jest.config.ts"
       }
+    },
+    "backend": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx json-server -p 3000 db.json --routes routes.json"
+      }
     }
   }
 }
