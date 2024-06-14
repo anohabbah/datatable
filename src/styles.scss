@@ -10,3 +10,9 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+mat-tab-group {
+  @apply gap-3;
+
+  & > div { @apply flex-grow }
+}
