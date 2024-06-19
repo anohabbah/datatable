@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef, GridOptions } from 'ag-grid-community';
 import { MatTab, MatTabContent, MatTabGroup } from '@angular/material/tabs';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { AgGridAngular } from 'ag-grid-angular';
+import { ColDef, GridOptions } from 'ag-grid-community';
 
 @Component({
   selector: 'dt-feature-home',
