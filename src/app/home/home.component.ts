@@ -5,14 +5,13 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef, GridOptions } from 'ag-grid-community';
 
 @Component({
-  selector: 'dt-feature-home',
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
-  standalone: true,
-  imports: [AgGridAngular, MatTabGroup, MatTab, MatTabContent, LoadingBarHttpClientModule],
-  host: {
-    class: 'h-full block',
-  },
+    selector: 'dt-feature-home',
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css',
+    imports: [AgGridAngular, MatTabGroup, MatTab, MatTabContent, LoadingBarHttpClientModule],
+    host: {
+        class: 'h-full block',
+    }
 })
 export class HomeComponent {
   gridOptions: GridOptions<any> = {};
