@@ -1,0 +1,35 @@
+<mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+  <mat-label>{{ label() }}</mat-label>
+  <mat-select
+    multiple
+    [formControl]="selectControl"
+    (openedChange)="onOpenedChange($event)"
+    (selectionChange)="onSelectionChange($event)"
+  >
+    <mat-select-trigger>
+      {{ selectControl.value?.[0]?.label || '' }}
+      @if ((selectControl.value?.length || 0) > 1) {
+        <span>({{ selectControl.value!.length - 1 | i18nPlural: withMore }})</span>
+      }
+    </mat-select-trigger>
+    <!-- Filter Input -->
+    <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+      <input matInput placeholder="Filter options..." [(ngModel)]="query" (click)="$event.stopPropagation()" />
+    </mat-form-field>
+
+    <!-- Select All / Deselect All Option -->
+    <div class="mat-mdc-option mat-mdc-option-multiple mdc-list-item" (click)="toggleSelectAll($event)">
+      <mat-pseudo-checkbox [state]="selectAllState() ?? 'unchecked'" />
+      <span class="-mdc-list-item__primary-text">Select all</span>
+    </div>
+
+    <!-- Filtered Options -->
+    @for (option of filteredOptions(); track option.label) {
+      <mat-option [value]="option.value">
+        {{ option.label }}
+      </mat-option>
+    } @empty {
+      <mat-option [disabled]="true">No options found</mat-option>
+    }
+  </mat-select>
+</mat-form-field>

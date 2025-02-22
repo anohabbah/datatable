@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="filter">
+      <div class="flex">
+        <div class="w-1/3">
+          <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+            <mat-label>Select an option</mat-label>
+            <mat-select formControlName="option">
+              @for (option of options(); track option.id) {
+                <mat-option [value]="option.id">{{ option.label.toLocaleUpperCase() }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="flex w-1/3 items-center">
+          <mat-radio-group formControlName="activeOnly">
+            <mat-radio-button [value]="true">Active only</mat-radio-button>
+            <mat-radio-button [value]="false">All</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="w-1/3">
+          <dt-select-all class="w-full" formControlName="all" [options]="selectAllOptions()" />
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
